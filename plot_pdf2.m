@@ -22,4 +22,4 @@ plot(x - dis, gcd(x, 3.5, s) + 2*offset, 'c');
 plot(x + dis, ggd(x, 1.5, s) - offset, 'g');
 plot(x + dis, ggd(x, 2, s), 'r'); % Gaussian
 plot(x + dis, ggd(x, 2.5, s) + offset, 'b');
-plot(x + dis, gcd(x, 3.5, s) + 2*offset, 'c');
+plot(x + dis, ggd(x, 3.5, s) + 2*offset, 'c');
