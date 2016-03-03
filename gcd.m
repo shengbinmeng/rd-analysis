@@ -1,10 +1,10 @@
-function [y] = gcd(x, sigma, p)
+function [y] = gcd(x, k, h)
 %GCD Generalized Cauchy distribution probability density function
-%   sigma   scale parameter
-%   p       tail constant
+%   k       tail constant
+%   h       scale parameter
 
-a = p * gamma(2/p) / (2 * gamma(1/p)^2);
-y = a * sigma * (sigma^p + abs(x).^p).^(-2/p);
+a = k * gamma(2/k) / (2 * gamma(1/k)^2);
+y = a * h * (h^k + abs(x).^k).^(-2/k);
 
 end
 

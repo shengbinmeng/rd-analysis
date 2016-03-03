@@ -1,7 +1,7 @@
 function [y] = ggd(x, alpha, beta)
 %GGD Generalized Gaussian distribution probability density function
 %   alpha   shape parameter
-%   beta    root variance
+%   beta    scale parameter
 
 %% definition
 % 
