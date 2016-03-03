@@ -1,20 +1,41 @@
 % plots for selected parameter values
-x = -2:.01:2;
+x = -5:.01:5;
 s = 1;
 figure;
-hold all;
-plot(x, ggd(x, 0.7, s));
-plot(x, ggd(x, 1, s));
-plot(x, ggd(x, 1.5, s));
-plot(x, ggd(x, 2, s)); % Gaussion
-plot(x, ggd(x, 4, s));
-%plot(x, ggd(x, 99999, s));
+plot(x, ggd(x, 1, s), ...
+    x, ggd(x, 1.5, s), ...
+    x, ggd(x, 2, s), ... % Gaussian
+    x, ggd(x, 4, s));
+axis([-5 5 0 .7]);
+title('Symmetric GGD densities, scale = 1');
+legend('\alpha = 1', ...
+    '\alpha = 1.5', ...
+    '\alpha = 2 (Gaussian)', ...
+    '\alpha = 4');
 
-s = 1;
 figure;
-hold all;
-plot(x, gcd(x, 0.7, s));
-plot(x, gcd(x, 1, s));
-plot(x, gcd(x, 1.5, s));
-plot(x, gcd(x, 2, s)); % Cauchy
-plot(x, gcd(x, 4, s));
+plot(x, gcd(x, 1, s), ...
+	x, gcd(x, 1.5, s), ...
+	x, gcd(x, 2, s), ... % Cauchy
+	x, gcd(x, 4, s));
+axis([-5 5 0 .7]);
+title('Symmetric GCD densities, scale = 1');
+legend('\alpha = 1',...
+    '\alpha = 1.5',...
+    '\alpha = 2 (Cauchy)',...
+    '\alpha = 4');
+
+figure;
+beta = 0;
+gam = 1;
+delta = 0;
+plot( x , stblpdf(x, .5, beta, gam, delta, 'quick'), ...
+  x, stblpdf(x, 1, beta, gam, delta, 'quick'), ... % Cauchy
+  x, stblpdf(x, 1.5, beta, gam, delta, 'quick'), ...
+  x, stblpdf(x, 2, beta, 1/(2^0.5), delta, 'quick')); % Gaussian
+axis([-5 5 0 .7]);
+title('Symmetric \alpha-stable densities, \beta = 1, \gamma (scale) = 1, \delta = 0');
+legend('\alpha = 0.5', ...
+    '\alpha = 1.0 (Cauchy)', ...
+    '\alpha = 1.5', ...
+    '\alpha = 2 (Gaussian)');
